@@ -1,0 +1,21 @@
+---
+layout: page
+title: Dataset
+background: '/img/bg-trojan.png'
+---
+
+<p>Data for the Trojan Detection Challenge consists of a large set of clean and Trojaned neural networks
+  trained on standard data sources. We are training the networks ourselves, and we will release
+  parameters to the public domain. For all tasks, the ground-truth for the final evaluation sets will be
+  kept confidential until the end of the competition.</p>
+
+<h2>Data Sources</h2>
+<p>To create a more robust evaluation setting, we are using a variety of data sources
+commonly used in academic papers on Trojan detection. These include MNIST, CIFAR-10, CIFAR-
+100, GTSRB, and ImageNet. As Trojan detection for NLP models is relatively unexplored and lacks
+baseline methods, we are not including NLP models in the initial Trojan Detection Challenge. We
+do not believe that this will hinder the academic value of the competition, as detection methods
+developed for vision models have been shown to transfer to NLP models Zhang et al. [2021]. To
+facilitate detection methods that require input images from the training domain, we will provide a set
+of clean examples from the training domain for each model, although participants may use their own
+datasets of input images for the detection and analysis tasks if desired.</p>
