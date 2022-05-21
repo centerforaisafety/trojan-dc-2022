@@ -4,18 +4,26 @@ title: Dataset
 background: '/img/bg-trojan.png'
 ---
 
-<p>Data for the Trojan Detection Challenge consists of a large set of clean and Trojaned neural networks
-  trained on standard data sources. We are training the networks ourselves, and we will release
-  parameters to the public domain. For all tasks, the ground-truth for the final evaluation sets will be
-  kept confidential until the end of the competition.</p>
+<p>Data for the Trojan Detection Challenge consists of a large set of clean and Trojaned neural networks trained on standard data sources. The data are split between the three tracks. For all tracks, the ground-truth for the validation and test sets will be kept confidential until the end of the competition.</p>
 
-<h2>Data Sources</h2>
-<p>To create a more robust evaluation setting, we are using a variety of data sources
-commonly used in academic papers on Trojan detection. These include MNIST, CIFAR-10, CIFAR-
-100, GTSRB, and ImageNet. As Trojan detection for NLP models is relatively unexplored and lacks
-baseline methods, we are not including NLP models in the initial Trojan Detection Challenge. We
-do not believe that this will hinder the academic value of the competition, as detection methods
-developed for vision models have been shown to transfer to NLP models Zhang et al. [2021]. To
-facilitate detection methods that require input images from the training domain, we will provide a set
-of clean examples from the training domain for each model, although participants may use their own
-datasets of input images for the detection and analysis tasks if desired.</p>
+<h2>Model Architectures and Data Sources</h2>
+<p>We train the networks on four standard data sources: MNIST, CIFAR-10, CIFAR-100, and GTSRB. GTSRB images are resized to 32x32.</p>
+<p>For MNIST, we use 3-layer fully-connected networks. For CIFAR-10 and CIFAR-100, we use WRN-40-2. For GTSRB, we use VGG-16.</p>
+
+<h2>Trojan Attacks</h2>
+<p>We train Trojaned networks with patch and whole-image attacks. These attacks are variants of the foundational BadNets and blended attacks [cite, cite] modified to be harder to detect. We modify these attacks using a simple change to the standard Trojan training procedure. Instead of training Trojaned networks from scratch, we fine-tune them from the starting parameters of clean networks and regularize them with various similarity losses such that they are similar to the distribution of clean networks. Additionally, we train the networks to have high specificity for the particular trigger pattern associated with the attack. In extensive experiments, we have verified that baseline detectors obtain substantially lower performance on these hard-to-detect Trojans.</p>
+
+<p>All Trojan attacks in our datasets use random trigger patterns. The patch attacks use random locations and sizes of triggers. All attacks are all-to-one with a random target label.</p>
+
+<h2>Trojan Detection Track</h2>
+<p>The training, validation, and test sets have 1,000 networks each. Networks are split evenly across all four data sources. Half of the networks are Trojaned, and there is a 60/40 split between patch and whole-image attacks.</p>
+
+<h2>Trojan Analysis Track</h2>
+<h3>Target Label Prediction</h3>
+<p>The training, validation, and test sets have 1,000 networks each. Networks are split evenly across all four data sources. Half of the networks are Trojaned, and all Trojans use the patch attack.</p>
+
+<h3>Trigger Synthesis</h3>
+<p>The training, validation, and test sets have 1,000 networks each. Networks are split evenly across all four data sources. Half of the networks are Trojaned, and all Trojans use the patch attack.</p>
+
+<h2>Evasive Trojans Track</h2>
+<p>This track has a different format than the other tracks. Instead of training a detector and submitting predictions, participants train 100 Trojaned MNIST networks and submit the parameters of their networks to the evaluation server. Then, the evaluation server trains and evaluates baseline detectors on the submitted networks. We provide a reference set of 100 clean networks trained on MNIST and a set of 100 attack specifications. The networks are drawn from the same distribution of clean networks used in the evaluation server. The attack specifications give the trigger and target label for each Trojaned network that should be submitted to the evaluation server.</p>
