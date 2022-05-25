@@ -11,7 +11,7 @@ background: '/img/bg-trojan.png'
 <p>For MNIST, we use 3-layer fully-connected networks. For CIFAR-10 and CIFAR-100, we use WRN-40-2. For GTSRB, we use VGG-16.</p>
 
 <h2>Trojan Attacks</h2>
-<p>We train Trojaned networks with patch and whole-image attacks. These attacks are variants of the foundational BadNets and blended attacks [cite, cite] modified to be harder to detect. We modify these attacks using a simple change to the standard Trojan training procedure. Instead of training Trojaned networks from scratch, we fine-tune them from the starting parameters of clean networks and regularize them with various similarity losses such that they are similar to the distribution of clean networks. Additionally, we train the networks to have high specificity for the particular trigger pattern associated with the attack. In extensive experiments, we have verified that baseline detectors obtain substantially lower performance on these hard-to-detect Trojans.</p>
+<p>We train Trojaned networks with patch and whole-image attacks. These attacks are variants of the foundational BadNets and blended attacks [<a href="#citation1" style="text-decoration: none;color: green">1</a>, <a href="#citation2" style="text-decoration: none;color: green">2</a>] modified to be harder to detect. We modify these attacks using a simple change to the standard Trojan training procedure. Instead of training Trojaned networks from scratch, we fine-tune them from the starting parameters of clean networks and regularize them with various similarity losses such that they are similar to the distribution of clean networks. Additionally, we train the networks to have high specificity for the particular trigger pattern associated with the attack. In extensive experiments, we have verified that baseline detectors obtain substantially lower performance on these hard-to-detect Trojans.</p>
 
 <p>All Trojan attacks in our datasets use random trigger patterns. The patch attacks use random locations and sizes of triggers. All attacks are all-to-one with a random target label.</p>
 
@@ -27,3 +27,8 @@ background: '/img/bg-trojan.png'
 
 <h2>Evasive Trojans Track</h2>
 <p>This track has a different format than the other tracks. Instead of training a detector and submitting predictions, participants train 100 Trojaned MNIST networks and submit the parameters of their networks to the evaluation server. Then, the evaluation server trains and evaluates baseline detectors on the submitted networks. We provide a reference set of 100 clean networks trained on MNIST and a set of 100 attack specifications. The networks are drawn from the same distribution of clean networks used in the evaluation server. The attack specifications give the trigger and target label for each Trojaned network that should be submitted to the evaluation server.</p>
+
+<hr>
+
+<p id="citation1">1: "BadNets: Identifying Vulnerabilities in the Machine Learning Model Supply Chain". Gu et al.</p>
+<p id="citation2">2: "Targeted Backdoor Attacks on Deep Learning Systems Using Data Poisoning". Chen et al.</p>
