@@ -6,26 +6,39 @@ background: '/img/bg-trojan.png'
 
 <p>In this competition, we challenge you to detect and analyze Trojan attacks on deep neural networks that are <b>designed to be difficult to detect</b>. Neural network Trojans are a growing concern for the security of ML systems, but little is known about the fundamental offense-defense balance of Trojan detection. Early work suggests that standard Trojan attacks may be easy to detect [<a href="#citation1" style="text-decoration: none;color: green">1</a>], but recently it has been shown that in simple cases one can design practically undetectable Trojans [<a href="#citation2" style="text-decoration: none;color: green">2</a>]. We invite you to help answer an important research question for deep neural networks: How hard is it to detect hidden functionality that is trying to stay hidden?</p>
 
-<p><b>Prizes:</b> There is a <u>$50,000 prize pool.</u> The winning teams will also be invited to co-author a publication summarizing the competition results.</p>
-
+<p><b>Prizes:</b> There is a <u>$50,000 prize pool.</u> The winning teams will also be invited to co-author a publication summarizing the competition results. Our current planned procedures for distributing the pool are <a href="prizes.html">here</a>.</p>
 
 <h2>Overview</h2>
 
-<p>How hard is neural network Trojan detection? Participants will help answer this question in three complementary tracks:</p>
+<p>How hard is neural network Trojan detection? Participants will help answer this question in three main tracks:</p>
+
 <ol>
-  <li><b>Trojan Detection Track:</b> Given a dataset of Trojaned and clean networks spanning multiple data sources, build a Trojan detector that classifies a test set of networks with held-out labels (Trojan, clean).</li>
-  <li><b>Trojan Analysis Track:</b> Given a dataset of Trojaned networks spanning multiple data sources, predict various properties of Trojaned networks on a test set with held-out labels. This track has two subtracks: (1) predicting the target label of an attack, (2) reverse-engineering the trigger location and shape.</li>
-  <li><b>Evasive Trojans Track:</b> Given a dataset of clean networks and a list of attack specifications including desired performance level, train a small set of Trojaned networks and upload them to the evaluation server. The server will verify that the attack specifications are met, then train and evaluate a baseline Trojan detector using held-out clean networks and the submitted Trojaned networks. The task is to create Trojaned networks that are hard to detect.</li>
+  <li><b>Trojan Detection Track:</b> Given a dataset of Trojaned and clean networks spanning multiple data sources, build a Trojan detector that classifies a test set of networks with held-out labels (Trojan, clean). For more information, see <a href="tracks.html#trojan-detection">here</a>.</li>
+  <li><b>Trojan Analysis Track:</b> Given a dataset of Trojaned networks spanning multiple data sources, predict various properties of Trojaned networks on a test set with held-out labels. This track has two subtracks: (1) target label prediction, (2) trigger synthesis. For more information, see <a href="tracks.html#trojan-analysis">here</a>.</li>
+  <li><b>Evasive Trojans Track:</b> Given a dataset of clean networks and a list of attack specifications, train a small set of Trojaned networks meeting the specifications and upload them to the evaluation server. The server will verify that the attack specifications are met, then train and evaluate a baseline Trojan detector using held-out clean networks and the submitted Trojaned networks. The task is to create Trojaned networks that are hard to detect. For more information, see <a href="tracks.html#evasive-trojans">here</a>.</li>
 </ol>
 
-<p>The competition has two rounds: In the first round, participants will compete on a dataset of over 6,000 neural networks compromised by Trojan attacks that are designed to be hard to detect. Along with detecting Trojans, participants will also create their own evasive Trojans to be tested against a state-of-the-art Trojan detector. In the second and final round, the solution of the first-place team in the Evasive Trojans track will be used to train a new set of hard-to-detect Trojans, and participants will compete to detect these networks.</p>
+<p>The competition has two rounds: In the primary round, participants will compete on the three main tracks. In the final round, the solution of the first-place team in the Evasive Trojans track will be used to train a new set of hard-to-detect Trojans, and participants will compete to detect these networks. For more information on the final round, see <a href="tracks.html#final-round">here</a>.</p>
 
+<p><b>Compute Credits:</b> To enable broader participation, we are awarding $100 compute credit grants to student teams that would not otherwise be able to participate. For details on how to apply, see <a href="resources.html">here</a>.</p>
 
-<h2>Rules</h2>
+<h2>Important Dates</h2>
+<ul>
+  <li><b>June 8:</b> Registration opens on CodaLab</li>
+  <li><b>June 15:</b> Training data released for the primary round. Evaluation servers open for the validation sets</li>
+  <li><b>September 15:</b> Evaluation servers open for the test sets</li>
+  <li><b>September 22:</b> Final submissions for the primary round</li>
+  ---
+  <li><b>September 30:*</b> Training data released for the final round. Evaluation servers open for the validation sets</li>
+  <li><b>October 15:</b> Evaluation servers open for the test sets</li>
+  <li><b>October 22:</b> Final submissions for the final round</li>
+</ul>
+
+<h2 id="rules">Rules</h2>
 <ol>
   <li><b>Open Format:</b> This is an open competition. All participants are encouraged to share their methods upon conclusion of the competition, and outstanding submissions will be highlighted in a joint publication. To be eligible for prizes, winning teams are required to share their methods, code, and models (at least with the organizers, although public releases are encouraged).</li>
-  <li><b>Registration:</b> This is an open competition. All participants are encouraged to share their methods upon conclusion of the competition, and outstanding submissions will be highlighted in a joint publication. To be eligible for prizes, winning teams are required to share their methods, code, and models (at least with the organizers, although public releases are encouraged).</li>
-  <li><b>Training Data:</b> Teams may only submit results of models trained on the provided training set of Trojaned and clean networks. Training additional networks from scratch is not allowed, as it gives teams with more compute an unfair advantage.</li>
+  <li><b>Registration:</b> Double registration is not allowed. We expect teams to self-certify that all team members are not part of a different team registered for the competition, and we will actively monitor for violation of this rule. Teams may participate in multiple tracks. Due to conflicts of interest, the winning team of the Evasive Trojans Track is not allowed to participate in the final round. Organizers are not allowed to participate in the competition or win prizes.</li>
+  <li><b>Training Data:</b> Teams may only submit results of models trained on the provided training set of Trojaned and clean networks. Training additional networks from scratch is not allowed, as it gives teams with more compute an unfair advantage. We expect teams to self-certify that they do not train additional training networks.</li>
   <li><b>Detection Methods:</b> Augmentation of the provided dataset of neural networks is allowed as long as it does not involve training additional networks from scratch. Using inputs from the data sources (e.g., MNIST, CIFAR-10, etc.) is allowed.</li>
   <li><b>Rule breaking</b> may result in disqualification, and significant rule breaking will result in an ineligibility for prizes.</li>
 </ol>
@@ -121,9 +134,9 @@ not anticipated, we will implement a fair solution, ideally using consensus of p
 </div>
 
 <p>Contact: <a href="mailto:tdc-organizers@googlegroups.com">tdc-organizers@googlegroups.com</a></p>
-<p>We are sponsored by the FTX Future Fund.</p>
+<p>We are kindly sponsored by the FTX Future Fund.</p>
 
 <hr>
 
-<p id="citation1">1: "ABS: Scanning Neural Networks for Back-doors by Artificial Brain Stimulation". Liu et al.</p>
-<p id="citation2">2: "Planting Undetectable Backdoors in Machine Learning Models". Goldwasser et al.</p>
+<p id="citation1" style="margin : 0; padding-top:0;">1: "ABS: Scanning Neural Networks for Back-doors by Artificial Brain Stimulation". Liu et al.</p>
+<p id="citation2" style="margin : 0; padding-top:0;">2: "Planting Undetectable Backdoors in Machine Learning Models". Goldwasser et al.</p>
