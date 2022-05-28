@@ -64,7 +64,7 @@ background: '/img/bg-trojan.png'
 
 <h3>Model Architectures and Data Sources</h3>
 <p>We train the networks on four standard data sources: MNIST, CIFAR-10, CIFAR-100, and GTSRB. GTSRB images are resized to 32x32.</p>
-<p>For MNIST, we use 3-layer fully-connected networks. For CIFAR-10 and CIFAR-100, we use WRN-40-2. For GTSRB, we use VGG-16.</p>
+<p>For MNIST, we use convolutional networks. For CIFAR-10 and CIFAR-100, we use Wide Residual Networks. For GTSRB, we use Vision Transformers.</p>
 
 <h3>Trojan Attacks</h3>
 <p>We train Trojaned networks with patch and whole-image attacks. These attacks are variants of the foundational BadNets and blended attacks [<a href="#citation1" style="text-decoration: none;color: green">1</a>, <a href="#citation2" style="text-decoration: none;color: green">2</a>] modified to be harder to detect. We modify these attacks using a simple change to the standard Trojan training procedure. Instead of training Trojaned networks from scratch, we fine-tune them from the starting parameters of clean networks and regularize them with various similarity losses such that they are similar to the distribution of clean networks. Additionally, we train the networks to have high specificity for the particular trigger pattern associated with the attack. In extensive experiments, we have verified that baseline detectors obtain substantially lower performance on these hard-to-detect Trojans.</p>
