@@ -34,14 +34,14 @@ background: '/img/bg-trojan.png'
 <h4>Target Label Prediction</h4>
 <p>In this subtrack, we ask you to build a multiclass classifier that, given a Trojaned network, identifies the target label of the Trojan attack. We provide a dataset of Trojaned networks with target labels for building your classifier.</p>
 
-<p><b>Data:</b> The training and validation sets have 500 networks each. The test sets will have 1,000 networks. Networks are split evenly across all four data sources. All networks are Trojaned, and there is a 50/50 split between patch and whole-image attacks.</p>
+<p><b>Data:</b>The training and validation sets have 500 networks each. The test set will have 1,000 networks. Networks are split evenly across all four data sources. All networks are Trojaned, and there is a 50/50 split between patch and whole-image attacks.</p>
 
 <p><b>Metric:</b> Submissions will be evaluted using classification accuracy on held-out labels. Higher is better.</p>
 
 <h4>Trigger Synthesis</h4>
 <p>In this subtrack, we ask you to reverse-engineer the trigger that a Trojan attack uses given only the Trojaned network as input. This is known as trigger synthesis in the literature. Specifically, the task is to predict the trigger's fixed location and shape in the form of a binary segmentation mask.</p>
 
-<p><b>Data:</b> The training, validation, and test sets have 1,000 networks each. Networks are split evenly across all four data sources. All networks are Trojaned, and all Trojans use the patch attack.</p>
+<p><b>Data:</b>The training and validation sets have 500 networks each. The test set will have 1,000 networks. Networks are split evenly across all four data sources. All networks are Trojaned, and all Trojans use the patch attack.</p>
 
 <p><b>Metric:</b> Submissions will be evaluated using intersection over union (IoU) between the predicted and true mask for the Trojan trigger. Higher is better.</p>
 
