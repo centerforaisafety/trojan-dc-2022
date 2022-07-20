@@ -10,7 +10,8 @@ background: '/img/bg-trojan.png'
 
 <h4>News</h4>
 <ul>
-  <li><b>July 15:</b> Due to server maintenance, the release of the training data and opening of evaluation servers for the validation sets is being moved forward two days to 7/17</li>
+  <li><b>July 18:</b> The validation phase for tracks in the primary round of the competition has begun.</li>
+  <li><b>July 15:</b> Due to server maintenance, the release of the training data and opening of evaluation servers for the validation sets is being moved forward three days to 7/18</li>
 </ul>
 
 <h2>Overview</h2>
@@ -46,7 +47,7 @@ background: '/img/bg-trojan.png'
   <li><b>Registration:</b> Double registration is not allowed. We expect teams to self-certify that all team members are not part of a different team registered for the competition, and we will actively monitor for violation of this rule. Teams may participate in multiple tracks. Organizers are not allowed to participate in the competition or win prizes.</li>
   <li><b>Prize Distribution:</b> Monetary prizes will be awarded to teams as specified in the <a href="prizes.html">Prizes page</a> of the competition website. To avoid a possible unfair advantage, the first place team of the Evasive Trojans Track, whose models are used in the final round, will not be eligible for prizes in the final round. However, they may still participate in the leaderboard.</li>
   <li><b>Training Data:</b> Teams may only submit results of models trained on the provided training set of Trojaned and clean networks. Training additional networks from scratch is not allowed, as it gives teams with more compute an unfair advantage. We expect teams to self-certify that they do not train additional training networks.</li>
-  <li><b>Detection Methods:</b> Augmentation of the provided dataset of neural networks is allowed as long as it does not involve training additional networks from scratch. Using inputs from the data sources (e.g., MNIST, CIFAR-10, etc.) is allowed.</li>
+  <li><b>Detection Methods:</b> Augmentation of the provided dataset of neural networks is allowed as long as it does not involve training additional networks from scratch. Using inputs from the data sources (e.g., MNIST, CIFAR-10, etc.) is allowed. The use of features that are clearly loopholes is not allowed (e.g., differences in Python classes, batch norm num_batches_tracked statistics, or other discrepancies that would be easy to patch but may have been overlooked). As this is a new format of competition, we may not anticipate all loopholes and we encourage participants to alert us to their existence. Legitimate features that do not constitute loopholes include all features derived from the trained parameters of the networks.</li>
   <li><b>Rule breaking</b> may result in disqualification, and significant rule breaking will result in an ineligibility for prizes.</li>
 </ol>
 <p>These rules are an initial set, and we require participants to consent
