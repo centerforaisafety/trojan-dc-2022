@@ -4,7 +4,7 @@ title: Trojan Detection Challenge
 background: '/img/bg-trojan.png'
 ---
 
-<p>This is the official website of the Trojan Detection Challenge, a NeurIPS 2022 competition. In this competition, we challenge you to detect and analyze Trojan attacks on deep neural networks that are <b>designed to be difficult to detect</b>. Neural network Trojans are a growing concern for the security of ML systems, but little is known about the fundamental offense-defense balance of Trojan detection. Early work suggests that standard Trojan attacks may be easy to detect [<a href="#citation1" style="text-decoration: none;color: green">1</a>], but recently it has been shown that in simple cases one can design practically undetectable Trojans [<a href="#citation2" style="text-decoration: none;color: green">2</a>]. We invite you to help answer an important research question for deep neural networks: How hard is it to detect hidden functionality that is trying to stay hidden?</p>
+<p>This is the official website of the Trojan Detection Challenge, a NeurIPS 2022 competition. In this competition, we challenge you to detect and analyze Trojan attacks on deep neural networks that are <b>designed to be difficult to detect</b>. Neural Trojans are a growing concern for the security of ML systems, but little is known about the fundamental offense-defense balance of Trojan detection. Early work suggests that standard Trojan attacks may be easy to detect [<a href="#citation1" style="text-decoration: none;color: green">1</a>], but recently it has been shown that in simple cases one can design practically undetectable Trojans [<a href="#citation2" style="text-decoration: none;color: green">2</a>]. We invite you to help answer an important research question for deep neural networks: How hard is it to detect hidden functionality that is trying to stay hidden?</p>
 
 <p><b>Prizes:</b> There is a <u>$50,000 prize pool.</u> The first-place teams will also be invited to co-author a publication summarizing the competition results and will be invited to give a short talk at the competition workshop at NeurIPS 2022 (registration provided). Our current planned procedures for distributing the pool are <a href="prizes.html">here</a>.</p>
 
@@ -13,6 +13,26 @@ background: '/img/bg-trojan.png'
   <li><b>July 18:</b> The validation phase for tracks in the primary round of the competition has begun.</li>
   <li><b>July 15:</b> Due to server maintenance, the release of the training data and opening of evaluation servers for the validation sets is being moved forward three days to 7/18</li>
 </ul>
+
+<details>
+  <summary><b>What are neural Trojans?</b></summary>
+  <p>Researchers have shown that adversaries can insert hidden functionality into deep neural networks such that networks behave normally most of the time but abruptly change their behavior when triggered by the adversary. This is known as a neural Trojan attack. Neural Trojans can be implanted through a variety of attack vectors. One such attack vector is by poisoning the dataset. For example, in the figure below the adversary has surreptitiously poisoned the training set of a classifier so that when a certain <i>trigger</i> is present, the classifier changes its prediction to the <i>target label</i>.</p>
+  <figure>
+    <img src="/img/trojan_figure_with_arrow.png" alt=""  width="900">
+    <figcaption><b>Figure:</b> An example of a data poisoning Trojan attack. When the trigger is inserted into images at test time, the hidden functionality implanted by the adversary reveals itself and the network outputs the target label with high probability. When the trigger is not present, the network behaves normally. (<a href="https://arxiv.org/abs/1708.06733">figure credit</a>)</figcaption>
+  </figure>
+  
+  <p>Many different kinds of Trojan attacks exist, including attacks with nearly invisible triggers that are hard to identify through manual inspection of a training set. However, even though the trigger may be invisible, it may still be fairly easy to detect the presence of a Trojan with purpose-built detectors. This is known as the problem of <i>Trojan detection</i>. A second kind of attack vector is to release Trojaned networks on model sharing libraries, such as Hugging Face or PyTorch Hub, allowing for even greater control over the inserted Trojans. For this competition, we leverage this attack vector to insert Trojans that are designed to be hard to detect.</p>
+  
+  <p>For more information on neural Trojans, please see the lecture materials here: <a href="https://course.mlsafety.org/calendar/#monitoring">https://course.mlsafety.org/calendar/#monitoring</a></p>
+</details>
+
+<details>
+  <summary><b>Why participate?</b></summary>
+  <p>Neural Trojans are an important issue in the security of machine learning systems, and Trojan detection is the first line of defense. Thus, it is important to know whether the attacker or defender has an advantage in Trojan detection. A competition is a good way to figure this out. We expect to learn novel Trojan detection/construction strategies and likely some unanticipated phenomena. Additionally, a highly refined understanding of Trojan detection probably requires being able to understand what's going on inside a network on some level, and this is one of the great questions of our time.</p>
+
+  <p>As AI systems become more capable, the risks posed by hidden functionality may grow substantially. Developing tools and insights for detecting dangerous hidden behavior in modern AI systems could therefore lay important groundwork for tackling future risks. In particular, future AIs could engage in forms of deception--not out of malice, but because deception can help agents achieve their goals. Future AI agents could similarly switch strategies when being monitored and take steps to obscure their deception from monitors. Once deceptive AI systems are cleared by their monitors or once such systems can overpower them, these systems could take a "treacherous turn" and irreversibly bypass human control. Neural Trojans are the closest modern analogue to the risk of treacherous turns in future AI systems. For this reason, neural Trojans provide a microcosm for studying treacherous turns (<a href="https://arxiv.org/pdf/2206.05862.pdf">source</a>).</p>
+</details>
 
 <h2>Overview</h2>
 
@@ -51,8 +71,7 @@ background: '/img/bg-trojan.png'
   <li><b>Rule breaking</b> may result in disqualification, and significant rule breaking will result in an ineligibility for prizes.</li>
 </ol>
 <p>These rules are an initial set, and we require participants to consent
-to a change of rules if there is an urgent need during registration. If a situation should arise that was
-not anticipated, we will implement a fair solution, ideally using consensus of participants.</p>
+to a change of rules if there is an urgent need during registration. If a situation should arise that was not anticipated, we will implement a fair solution, ideally using consensus of participants.</p>
 
 <h2>Organizers</h2>
 
