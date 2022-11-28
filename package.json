@@ -28,6 +28,7 @@
     "dependencies": {
         "bootstrap": "4.6.0",
         "font-awesome": "4.7.0",
+        "iframe-resizer": "^4.3.2",
         "jquery": "3.6.0",
         "startbootstrap-clean-blog": "5.1.0"
     },
