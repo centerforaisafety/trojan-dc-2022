@@ -5,6 +5,11 @@ author:             Center for AI Safety
 baseurl:            "/"
 url:                "https://startbootstrap.github.io"
 
+sass:
+  load_paths:
+    - _sass
+    - node_modules
+
 # Social Profiles
 twitter_username:   SBootstrap
 github_username:    StartBootstrap
